@@ -10,6 +10,8 @@ sudo docker swarm init
 Start a registry as a service on your swarm
 ```bash
 sudo docker service create --name registry --publish published=5000,target=5000 registry:2
+# or
+sudo docker run -d -p 5000:5000 --restart=always --name registry registry:2
 
 # returns `{}` on successful registry setup
 curl http://localhost:5000/v2/
